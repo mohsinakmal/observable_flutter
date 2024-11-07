@@ -16,15 +16,12 @@ class HomeView extends StackedView<HomeViewModel> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-
-              ],
-            ),
-          ),
+          child: viewModel.isBusy ? const Center(child: CircularProgressIndicator(),)
+              : ListView.builder(
+            itemCount: viewModel.data?.length,
+              itemBuilder: (context, index) {
+              },
+          )
         ),
       ),
     );
